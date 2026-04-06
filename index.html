@@ -3,474 +3,439 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>سياسة الخصوصية - Jmali App</title>
+  <title>موقعي الشخصي</title>
+  <meta name="description" content="موقع شخصي للتعريف بي وبخبراتي ومشاريعي." />
   <style>
-    :root{
-      --bg1:#f7f8fc;
-      --bg2:#eef1f8;
-      --card:#ffffff;
-      --text:#1f2937;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --primary:#1f3a5f;
-      --primary2:#355c8a;
-      --soft:#f8fafc;
-      --accent:#c8a96b;
-      --shadow:0 12px 35px rgba(15,23,42,.08);
-      --radius:24px;
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --shadow: 0 20px 40px rgba(0,0,0,0.25);
+      --radius: 22px;
+      --container: 1100px;
     }
 
-    *{
-      box-sizing:border-box;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      margin:0;
-      font-family:Tahoma, Arial, sans-serif;
-      color:var(--text);
+    body {
+      font-family: Tahoma, Arial, sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(53,92,138,.08), transparent 30%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      line-height:2;
+        radial-gradient(circle at top right, rgba(56,189,248,0.15), transparent 25%),
+        radial-gradient(circle at bottom left, rgba(34,197,94,0.12), transparent 25%),
+        linear-gradient(135deg, #020617, #0f172a 45%, #111827);
+      color: var(--text);
+      line-height: 1.8;
     }
 
-    .hero{
-      background:linear-gradient(135deg, var(--primary), var(--primary2));
-      color:#fff;
-      padding:70px 20px 110px;
-      position:relative;
-      overflow:hidden;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .hero::before,
-    .hero::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      background:rgba(255,255,255,.08);
+    .container {
+      width: min(92%, var(--container));
+      margin: auto;
     }
 
-    .hero::before{
-      width:220px;
-      height:220px;
-      top:-60px;
-      left:-60px;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(2, 6, 23, 0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .hero::after{
-      width:280px;
-      height:280px;
-      bottom:-120px;
-      right:-90px;
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
     }
 
-    .hero-inner{
-      max-width:1000px;
-      margin:0 auto;
-      position:relative;
-      z-index:1;
+    .brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--text);
     }
 
-    .badge{
-      display:inline-block;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.18);
-      color:#fff;
-      padding:8px 14px;
-      border-radius:999px;
-      font-size:14px;
-      margin-bottom:18px;
-      backdrop-filter:blur(6px);
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    .hero h1{
-      margin:0 0 12px;
-      font-size:40px;
-      line-height:1.4;
-      font-weight:700;
+    .nav-links a {
+      color: var(--muted);
+      transition: 0.25s;
     }
 
-    .hero p{
-      margin:0;
-      max-width:760px;
-      color:rgba(255,255,255,.92);
-      font-size:17px;
+    .nav-links a:hover {
+      color: var(--accent);
     }
 
-    .wrap{
-      max-width:1000px;
-      margin:-55px auto 50px;
-      padding:0 20px;
-      position:relative;
-      z-index:2;
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 40px;
     }
 
-    .card{
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.8);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
     }
 
-    .card-top{
-      padding:26px 30px;
-      border-bottom:1px solid var(--line);
-      background:linear-gradient(180deg, #ffffff, #fcfcfd);
+    .hero-card,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
-    .updated{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:#f8fafc;
-      color:var(--muted);
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:10px 14px;
-      font-size:14px;
+    .hero-card {
+      padding: 36px;
     }
 
-    .content{
-      padding:10px 30px 34px;
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(56,189,248,0.12);
+      color: #bae6fd;
+      border: 1px solid rgba(56,189,248,0.25);
+      margin-bottom: 18px;
+      font-size: 0.95rem;
     }
 
-    .intro{
-      font-size:16px;
-      color:#374151;
-      margin:18px 0 8px;
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.3;
+      margin-bottom: 18px;
     }
 
-    .section{
-      padding:24px 0;
-      border-bottom:1px solid var(--line);
+    .hero p {
+      color: var(--muted);
+      font-size: 1.07rem;
+      margin-bottom: 24px;
     }
 
-    .section:last-child{
-      border-bottom:none;
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .section-title{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin:0 0 12px;
-      font-size:24px;
-      line-height:1.5;
-      color:#111827;
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
     }
 
-    .section-num{
-      min-width:42px;
-      height:42px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:14px;
-      background:linear-gradient(135deg, var(--primary), var(--primary2));
-      color:#fff;
-      font-size:16px;
-      font-weight:700;
-      box-shadow:0 6px 18px rgba(31,58,95,.18);
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      color: white;
     }
 
-    .section p{
-      margin:0 0 10px;
-      color:#374151;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(56,189,248,0.2);
     }
 
-    .dash-list{
-      list-style:none;
-      margin:12px 0 0;
-      padding:0;
-      display:grid;
-      gap:10px;
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.18);
+      color: var(--text);
     }
 
-    .dash-list li{
-      position:relative;
-      padding:12px 18px 12px 12px;
-      padding-right:38px;
-      background:var(--soft);
-      border:1px solid #edf1f5;
-      border-radius:14px;
-      color:#1f2937;
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
-    .dash-list li::before{
-      content:"—";
-      position:absolute;
-      right:14px;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--primary2);
-      font-weight:700;
-      font-size:18px;
+    .stats {
+      display: grid;
+      gap: 16px;
     }
 
-    .link-box{
-      margin-top:12px;
-      padding:14px 16px;
-      background:#f8fafc;
-      border:1px solid var(--line);
-      border-radius:14px;
+    .stat-box {
+      padding: 24px;
     }
 
-    a{
-      color:var(--primary2);
-      text-decoration:none;
-      word-break:break-word;
+    .stat-box h3 {
+      font-size: 1rem;
+      color: #e2e8f0;
+      margin-bottom: 8px;
     }
 
-    a:hover{
-      text-decoration:underline;
+    .stat-box p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.98rem;
     }
 
-    .contact{
-      margin-top:12px;
-      padding:18px;
-      background:linear-gradient(180deg, #fffdf8, #fffaf1);
-      border:1px solid #f1e7d4;
-      border-radius:18px;
+    section {
+      padding: 28px 0 70px;
     }
 
-    .footer-note{
-      margin-top:18px;
-      color:var(--muted);
-      font-size:14px;
-      text-align:center;
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 14px;
     }
 
-    @media (max-width: 768px){
-      .hero{
-        padding:48px 16px 90px;
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 760px;
+    }
+
+    .about-card,
+    .contact-card {
+      padding: 30px;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-card,
+    .project-card,
+    .contact-item {
+      padding: 24px;
+    }
+
+    .skill-card h3,
+    .project-card h3,
+    .contact-item h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .skill-card p,
+    .project-card p,
+    .contact-item p,
+    .about-card p {
+      color: var(--muted);
+    }
+
+    .project-card .project-tags {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-tags span {
+      display: inline-block;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #e2e8f0;
+      font-size: 0.88rem;
+    }
+
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 28px 0 40px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .contact-list {
+        grid-template-columns: 1fr;
       }
 
-      .hero h1{
-        font-size:30px;
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .hero p{
-        font-size:15px;
-      }
-
-      .wrap{
-        margin-top:-40px;
-        padding:0 14px;
-      }
-
-      .card-top,
-      .content{
-        padding-left:18px;
-        padding-right:18px;
-      }
-
-      .section-title{
-        font-size:21px;
-        gap:10px;
-      }
-
-      .section-num{
-        min-width:38px;
-        height:38px;
-        font-size:15px;
+      .hero {
+        min-height: auto;
+        padding-top: 50px;
       }
     }
   </style>
 </head>
 <body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">موقعي الشخصي</div>
+      <div class="nav-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#about">من أنا</a>
+        <a href="#skills">المهارات</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#contact">التواصل</a>
+      </div>
+    </div>
+  </nav>
 
-  <header class="hero">
-    <div class="hero-inner">
-      <span class="badge">Jmali App</span>
-      <h1>سياسة الخصوصية لتطبيق جمالي</h1>
-      <p>
-        نلتزم بحماية بيانات المستخدمين وشرح كيفية جمع المعلومات واستخدامها وحفظها
-        بشكل واضح وشفاف عند استخدام التطبيق.
-      </p>
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <span class="tag">مطور تطبيقات ومبرمج مواقع</span>
+        <h1>أهلاً، أنا أحمد<br>أبني مواقع بسيطة وتطبيقات عملية</h1>
+        <p>
+          أنا مبرمج مواقع بسيطة ومطور تطبيقات، ولدي خبرات بسيطة في برامج أدوبي.
+          أهتم بتصميم وتنفيذ حلول رقمية واضحة وسهلة الاستخدام، وأسعى دائمًا إلى تطوير مهاراتي في البرمجة والتصميم.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">تواصل معي</a>
+          <a class="btn btn-secondary" href="#projects">عرض المشاريع</a>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="card stat-box">
+          <h3>التخصص</h3>
+          <p>تطوير تطبيقات ومواقع تعريفية وخدمية بسيطة.</p>
+        </div>
+        <div class="card stat-box">
+          <h3>المهارات التقنية</h3>
+          <p>HTML, CSS, JavaScript, تطوير تطبيقات الجوال، والعمل على واجهات واضحة ومنظمة.</p>
+        </div>
+        <div class="card stat-box">
+          <h3>مهارات إضافية</h3>
+          <p>خبرة بسيطة في بعض برامج أدوبي للمساعدة في التصميم وتجهيز العناصر البصرية.</p>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <div class="card-top">
-        <div class="updated">آخر تحديث: 30 مارس 2026</div>
-      </div>
-
-      <div class="content">
-        <p class="intro">
-          نحن في تطبيق "جمالي" (Jmali App) نحترم خصوصية المستخدمين ونلتزم بحماية بياناتهم الشخصية.
-          توضح هذه السياسة كيفية جمع المعلومات واستخدامها وحفظها عند استخدام التطبيق.
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">من أنا</h2>
+      <p class="section-desc">نبذة مختصرة عني وعن طبيعة عملي وخبراتي.</p>
+      <div class="card about-card">
+        <p>
+          أنا مطور تطبيقات ومبرمج مواقع بسيطة، أعمل على إنشاء صفحات ومواقع خفيفة ومنظمة، بالإضافة إلى تطوير تطبيقات عملية تلبي احتياجات المستخدم بشكل مباشر.
+          كما أمتلك خبرة بسيطة في برامج أدوبي، مما يساعدني على فهم الجانب البصري وتحسين طريقة عرض المشاريع والواجهات.
         </p>
+        <br>
+        <p>
+          أركز على البساطة، الوضوح، وسهولة الاستخدام، وأهتم بتقديم أعمال مرتبة يمكن تطويرها وتحسينها مع الوقت.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">1</span> المعلومات التي نقوم بجمعها</h2>
-          <p>قد نقوم بجمع بعض المعلومات التالية عند استخدامك للتطبيق:</p>
-          <ul class="dash-list">
-            <li>الاسم</li>
-            <li>رقم الهاتف</li>
-            <li>الموقع الجغرافي</li>
-            <li>الصور التي يرفعها المستخدم داخل التطبيق</li>
-            <li>بيانات الطلبات والمشتريات</li>
-            <li>بيانات الجهاز والإشعارات</li>
-            <li>معلومات تسجيل الدخول والمصادقة</li>
-          </ul>
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">المهارات</h2>
+      <p class="section-desc">أهم المهارات التي أعمل بها في تطوير المواقع والتطبيقات.</p>
+      <div class="grid-3">
+        <div class="card skill-card">
+          <h3>تطوير المواقع البسيطة</h3>
+          <p>إنشاء صفحات تعريفية ومواقع خفيفة باستخدام HTML وCSS وJavaScript بشكل منظم وواضح.</p>
         </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">2</span> كيفية جمع المعلومات</h2>
-          <p>نقوم بجمع المعلومات بالطرق التالية:</p>
-          <ul class="dash-list">
-            <li>المعلومات التي يدخلها المستخدم بنفسه داخل التطبيق</li>
-            <li>المعلومات التي يتم الحصول عليها بعد موافقة المستخدم، مثل الموقع أو الصور</li>
-            <li>المعلومات التقنية التي يتم جمعها تلقائيًا لتحسين أداء التطبيق وتشغيل الميزات</li>
-          </ul>
+        <div class="card skill-card">
+          <h3>تطوير التطبيقات</h3>
+          <p>العمل على تطوير تطبيقات عملية مع الاهتمام بتجربة المستخدم وسهولة التنقل داخل التطبيق.</p>
         </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">3</span> كيفية استخدام المعلومات</h2>
-          <p>نستخدم المعلومات للأغراض التالية:</p>
-          <ul class="dash-list">
-            <li>إنشاء الحساب وتسجيل الدخول</li>
-            <li>تنفيذ الطلبات وعرض حالة الطلب</li>
-            <li>تحديد موقع التوصيل عند الحاجة</li>
-            <li>تمكين رفع الصور في بعض النماذج أو الطلبات</li>
-            <li>إرسال الإشعارات المتعلقة بالطلبات أو التحديثات المهمة</li>
-            <li>تحسين تجربة المستخدم وأداء التطبيق</li>
-            <li>حماية التطبيق ومنع إساءة الاستخدام</li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">4</span> مشاركة المعلومات</h2>
-          <p>نحن لا نبيع بيانات المستخدمين لأي طرف ثالث.</p>
-          <p>قد تتم مشاركة بعض البيانات فقط مع الخدمات التقنية اللازمة لتشغيل التطبيق، مثل:</p>
-          <ul class="dash-list">
-            <li>خدمات Firebase من Google (لتسجيل الدخول، قاعدة البيانات، الإشعارات، والتحليلات عند تفعيلها)</li>
-            <li>خدمات الخرائط والموقع لتحديد المواقع وعرضها داخل التطبيق</li>
-          </ul>
-          <div class="link-box">
-            وقد تقوم هذه الجهات بجمع بعض البيانات وفقًا لسياسات الخصوصية الخاصة بها.<br>
-            يمكنك الاطلاع على سياسة Google عبر:
-            <br>
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
-              https://policies.google.com/privacy
-            </a>
-          </div>
-          <p style="margin-top:12px;">ويتم ذلك فقط بالقدر اللازم لتشغيل التطبيق وتقديم الخدمة.</p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">5</span> الموقع الجغرافي</h2>
-          <p>قد يطلب التطبيق الوصول إلى موقعك الجغرافي من أجل:</p>
-          <ul class="dash-list">
-            <li>تحديد موقع التوصيل</li>
-            <li>تسهيل اختيار العنوان</li>
-            <li>تحسين دقة الخدمات المرتبطة بالموقع</li>
-          </ul>
-          <p style="margin-top:12px;">يمكنك رفض صلاحية الموقع، لكن بعض الميزات قد لا تعمل بشكل صحيح.</p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">6</span> الصور والكاميرا</h2>
-          <p>
-            قد يسمح التطبيق للمستخدم برفع الصور من المعرض أو التقاطها باستخدام الكاميرا عند استخدام بعض الميزات.
-          </p>
-          <p>
-            يتم استخدام هذه الصور فقط في حال رغبة المستخدم بإبلاغنا عن عدم توفر منتج معين،
-            حيث يمكنه رفع صورة المنتج وإدخال اسمه لمساعدتنا في توفيره.
-          </p>
-          <p>ولا يتم استخدام هذه الصور لأي غرض آخر.</p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">7</span> الإشعارات</h2>
-          <p>قد يستخدم التطبيق الإشعارات لإرسال:</p>
-          <ul class="dash-list">
-            <li>تحديثات حالة الطلب</li>
-            <li>التنبيهات المهمة المتعلقة بالخدمة</li>
-            <li>الإشعارات العامة المرتبطة بالتطبيق</li>
-          </ul>
-          <p style="margin-top:12px;">يمكنك إيقاف الإشعارات من إعدادات الجهاز في أي وقت.</p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">8</span> حفظ البيانات وحمايتها</h2>
-          <p>
-            نحن نتخذ إجراءات معقولة لحماية بيانات المستخدمين من الوصول غير المصرح به أو التعديل
-            أو الإفصاح أو الإتلاف. ومع ذلك، لا توجد وسيلة نقل أو تخزين إلكتروني آمنة بنسبة 100%.
-          </p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">9</span> الاحتفاظ بالبيانات</h2>
-          <p>
-            نحتفظ بالبيانات فقط للمدة اللازمة لتقديم الخدمة أو للوفاء بالالتزامات القانونية أو التشغيلية،
-            ثم يتم حذفها أو تقليل ارتباطها بصاحبها متى كان ذلك ممكنًا.
-          </p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">10</span> حقوق المستخدم</h2>
-          <p>يمكن للمستخدم طلب:</p>
-          <ul class="dash-list">
-            <li>الاطلاع على بياناته</li>
-            <li>تعديل بياناته</li>
-            <li>حذف بياناته</li>
-            <li>حذف الحساب بشكل كامل</li>
-          </ul>
-          <p style="margin-top:12px;">
-            يمكن تقديم طلب حذف الحساب أو البيانات من خلال التواصل معنا،
-            وسيتم تنفيذ الطلب خلال فترة زمنية معقولة.
-          </p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">11</span> خصوصية الأطفال</h2>
-          <p>
-            التطبيق غير مخصص للأطفال دون السن المسموح به وفق الأنظمة المحلية،
-            ولا نجمع بيانات الأطفال عن قصد.
-          </p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">12</span> روابط أو خدمات خارجية</h2>
-          <p>
-            قد يتضمن التطبيق روابط أو تكاملات مع خدمات خارجية مثل Google Maps وFirebase وخدمات Google الأخرى.
-            تخضع هذه الخدمات لسياسات الخصوصية الخاصة بها، ولا نتحمل مسؤولية ممارسات الخصوصية الخاصة بها.
-            ننصح المستخدم بمراجعة سياسات الخصوصية لهذه الجهات عند الحاجة.
-          </p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">13</span> التعديلات على سياسة الخصوصية</h2>
-          <p>
-            قد نقوم بتحديث هذه السياسة من وقت لآخر. عند إجراء أي تعديل،
-            سيتم نشر النسخة المحدثة مع تاريخ آخر تحديث.
-          </p>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title"><span class="section-num">14</span> التواصل معنا</h2>
-          <div class="contact">
-            <p>إذا كانت لديك أي أسئلة أو طلبات متعلقة بالخصوصية، يمكنك التواصل معنا عبر:</p>
-            <ul class="dash-list">
-              <li>البريد الإلكتروني: support@jamaliapp.com</li>
-              <li>أو من خلال قنوات الدعم داخل التطبيق</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-note">
-          © Jmali App - جميع الحقوق محفوظة
+        <div class="card skill-card">
+          <h3>التصميم المساعد</h3>
+          <p>خبرة بسيطة في برامج أدوبي لاستخدامها في تجهيز صور أو عناصر بصرية للمشاريع.</p>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">المشاريع</h2>
+      <p class="section-desc">نماذج مختصرة عن نوع الأعمال والمشاريع التي أعمل عليها.</p>
+      <div class="grid-2">
+        <div class="card project-card">
+          <h3>مواقع تعريفية بسيطة</h3>
+          <p>إنشاء مواقع بسيطة للتعريف بالأشخاص أو الأنشطة أو الخدمات، مع تصميم واضح ومتجاوب مع الجوال.</p>
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <h3>تطوير تطبيقات عملية</h3>
+          <p>العمل على تطبيقات تهدف إلى تقديم خدمة أو فكرة مفيدة، مع تنظيم الواجهات والتركيز على سهولة الاستخدام.</p>
+          <div class="project-tags">
+            <span>Apps</span>
+            <span>UI</span>
+            <span>UX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">التواصل</h2>
+      <p class="section-desc">يمكنك تعديل هذه البيانات ووضع معلوماتك الحقيقية قبل رفع الموقع على GitHub Pages.</p>
+      <div class="card contact-card">
+        <div class="contact-list">
+          <div class="card contact-item">
+            <h3>البريد الإلكتروني</h3>
+            <p>yourname@example.com</p>
+          </div>
+          <div class="card contact-item">
+            <h3>رقم الهاتف</h3>
+            <p>+967 XX XXX XXXX</p>
+          </div>
+          <div class="card contact-item">
+            <h3>GitHub</h3>
+            <p>github.com/yourusername</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      جميع الحقوق محفوظة © 2026
+    </div>
+  </footer>
 </body>
 </html>
